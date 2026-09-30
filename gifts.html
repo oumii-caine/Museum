@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gifts Room</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        body.back {
+            background-image: url("css/img_1.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .gift-gallery {
+            max-width: 900px;
+            padding: 30px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .gift-gallery p {
+            padding: 30px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .back-museum {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body class="back">
+
+<div class="container">
+
+    <!-- Boîte cadeau -->
+    <div class="gift-box" id="giftBox">
+        <img src="css/box.png" alt="Gift box">
+    </div>
+
+    <!-- Cadeau caché au départ -->
+    <div class="gift-content" id="giftContent">
+
+        <div class="gift-gallery">
+
+            <div class="gift-card">
+
+                <img src="css/gift.jpg"
+                     alt="My gift"
+                     width="400"
+                     height="600">
+                <p>
+                   What are you looking for? I'M THE GIFT girl.
+                </p>       
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="museum.html" class="back-museum">
+        Back to Museum
+    </a>
+
+</div>
+
+<script>
+    const giftBox = document.getElementById("giftBox");
+    const giftContent = document.getElementById("giftContent");
+
+    giftBox.addEventListener("click", function () {
+        giftBox.style.display = "none";
+        giftContent.style.display = "block";
+    });
+</script>
+
+</body>
+</html>

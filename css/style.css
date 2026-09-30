@@ -1,0 +1,542 @@
+
+html, body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+   /* border: 0;*/
+
+
+}
+body {
+     min-height: 100vh;
+     background-image: url("img.png");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+}
+body.message-room {
+    min-height: 100vh;
+    background-image: url("lettre.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+body.message-room::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(5px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.message-room .container {
+    position: relative;
+    z-index: 1;
+}
+.container {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   color: white;
+   backdrop-filter: blur(5px);
+
+   /*background-color: rgba(0, 0, 35, 0.5);*/
+
+}
+.container h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+.container p {
+   font-size: 20px;
+   margin-bottom: 30px;
+}
+.container a {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.container a:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.rooms {
+    display: flex;
+    gap: 40px;
+}
+.rooms img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+.back-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+.back-home:hover {
+  transform: translateY(-3px);
+}
+/* =========================
+   MEMORIES ROOM
+========================= */
+.memory-room {
+    min-height: 100vh;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+}
+.memory-room h1 {
+    font-size: 48px;
+    margin-bottom: 50px;
+    letter-spacing: 3px;
+}
+
+.memory-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+    width: 100%;
+}
+.memory:nth-child(2),.memory:nth-child(35),.memory:nth-child(8),.memory:nth-child(29),.memory:nth-child(18),.memory:nth-child(24) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.memory:nth-child(7),.memory:nth-child(4),.memory:nth-child(31),.memory:nth-child(23) {
+    grid-row: span 2;
+}
+.memory:nth-child(14) {
+    grid-column: span 2;
+}
+
+.memory-room .memory img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+.memory-room .memory video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+.memory-room .memory {
+    padding: 10px;
+
+   /* background-color: rgba(255, 255, 255, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memory-room .memory:hover {
+    transform: translateY(-8px);
+    /*box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45);*/
+}
+.memory-detail a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+.memory-detail p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: pink;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.memory-detail a:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.memory-room .back-museum {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    position: fixed;
+    top: -30px;
+    left: 20px;
+}
+
+.memory-room .back-museum:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+/* =========================
+   MESSAGES ROOM
+========================= */
+.message-gallery {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 180px;
+    height: 180px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+.message-gallery img:hover{
+   width: 185px;
+}
+.message-gallery.show {
+    opacity: 1;
+    pointer-events: auto;;
+}
+
+.message {
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: transform 1s ease, opacity 1s ease;
+}
+.message-gallery.show .message {
+    transform:
+        translate(
+            calc(-50% + var(--x)),
+            calc(-50% + var(--y))
+        )
+        scale(1)
+        rotate(var(--rotation));
+}
+
+.message-title {
+    font-size: 48px;
+    margin-bottom: 10px;
+    margin: 30;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-style: italic;
+
+    padding: 15px 30px;
+    display: inline-block;
+}
+.message-title.hidden {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+.big-envelope {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.big-envelope img {
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.6s ease;
+}
+.big-envelope:hover {
+     transform: translateY(-4px);
+}
+.big-envelope.hidden {
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+.envelope img {
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    transition: transform 0.6s ease;
+}
+.envelope a {
+    display: inline-block;
+    width: fit-content;
+    height: auto;
+    padding: 0;
+    margin: 0;
+
+}
+.envelope:hover .envelope-image {
+
+    transform: translateY(-6px);
+}
+.envelope:active .envelope-image {
+    transform: scale(1.15);
+}
+
+.message-room .back-museum {
+    position: fixed;
+    top: -30px;
+    left: 20px;
+    z-index: 100;
+}
+.back-museum:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+.message-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    margin: 20px auto 0;
+    padding: 0 30px;
+    box-sizing: border-box;
+    position: fixed;
+    top: -5px;
+    left: 10px;
+}
+.message-navigation a {
+    padding: 12px 22px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.message-navigation a:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+.message-detail {
+    width: 500px;
+    max-width: 80%;
+    padding: 40px;
+    text-align: center;
+    background-color: #D4B89F;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.message-detail img {
+    max-width: 100%;
+    max-height: 690px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    background-color: #D4B89F;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.message-detail a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #D4B89F;
+    color: white;
+    text-shadow: 2px 2px 5px #5A4636;
+    font-weight: bold;
+}
+
+.message-detail a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+     transform: scale(1.05);
+}
+
+
+.envelope-title {
+    display: block;
+    margin: 15px 0 0 0;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+/* =========================
+   MEMORY DETAIL
+========================= */
+.memory-detail {
+    max-width: 900px;
+    padding: 30px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+.memory-detail video {
+    max-width: 100%;
+    max-height: 690px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+.memory-detail img {
+    max-width: 100%;
+    max-height: 690px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.memory-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    margin: 20px auto 0;
+    padding: 0 30px;
+    box-sizing: border-box;
+    position: fixed;
+    top: -10px;
+    left: 5px;
+}
+.memory-navigation a {
+    padding: 12px 22px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.memory-navigation a:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+/* =========================
+   HOME PAGE
+========================= */
+
+.home-page {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   /* text-align: left; */
+}
+
+.home-content {
+
+    width: 50%;
+    max-width: 750px;
+    padding: 20px;
+    text-align: left;
+    color: #7B1E3A;;
+    margin:0;
+}
+
+.welcome-small {
+    font-size: 22px;
+    letter-spacing: 6px;
+    margin: 0;
+    color: #7B1E3A;
+}
+
+.home-content h1 {
+    font-size: 72px;
+    line-height: 1.1;
+    letter-spacing: 4px;
+    margin: 10px 0 25px;
+    color: #7B1E3A;
+}
+
+.home-description {
+    font-size: 27px;
+    font-style: italic;
+    margin-bottom: 40px;
+    color: #7B1E3A;
+}
+
+.enter-button {
+    display: inline-block;
+    padding: 16px 30px;
+
+    text-decoration: none;
+    color: #7B1E3A;
+    background-color: rgba(255, 255, 255, 0.25);
+
+    border: 2px solid #7B1E3A;
+    border-radius: 30px;
+
+    letter-spacing: 2px;
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+.enter-button span {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.enter-button:hover {
+    background-color:  #7B1E3A;
+    color: white;
+    transform: translateY(-4px);
+}
+
+.home-page {
+
+    background-image: url("canva.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.back-museum {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+}
+
+.back-museum:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.gift-box {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.gift-box img {
+    width: 400px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.gift-box img:hover {
+    transform: scale(1.05);
+}
+
+.gift-content {
+    display: none;
+}

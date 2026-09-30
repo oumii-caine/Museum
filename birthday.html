@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Birthday Room</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        body.backb {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.50)),
+                              url("css/img_2.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .birthday-m {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .birthday-m img {
+            animation: pulse 2s infinite;
+            margin-top: 10%;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .back-museum {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body class="backb">
+
+    <div style="background-image: url('css/birthday.png');">
+
+        <a href="museum.html" class="back-museum">
+            Back to Museum
+        </a>
+
+        <div class="cake-container">
+
+            <div class="birthday-m">
+
+                <a href="https://canva.link/w868ba9ualhzxi5" target="_blank">
+                    <img src="css/Cover.png" style="height: 700px;" alt="Birthday">
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

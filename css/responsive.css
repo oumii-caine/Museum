@@ -1,0 +1,377 @@
+@media (max-width: 900px) {
+   .body {
+      margin: 0;
+      padding: 0;
+   }
+}
+
+@media (max-width: 600px) {
+   .body {
+      margin: 0;
+      padding: 0;
+   }
+}
+
+
+@media (max-width: 900px) {
+
+    .home-content {
+        width: 65%;
+    }
+
+    .home-content h1 {
+        font-size: 55px;
+    }
+
+    .home-description {
+        font-size: 23px;
+    }
+
+    .welcome-small {
+        font-size: 19px;
+        letter-spacing: 4px;
+    }
+}
+@media (max-width: 600px) {
+    .home-page {
+        background-position: center center;
+    }
+}
+@media (max-width: 600px) {
+
+    .home-content {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+@media (max-width: 600px) {
+    .home-page {
+        background-image: url("canva-phone.png");
+        backdr
+    }
+}
+
+/* ROOMS */
+@media (max-width: 900px) {
+
+    .rooms {
+        gap: 20px;
+    }
+
+    .rooms img {
+        width: 120px;
+    }
+
+    .container h1 {
+        font-size: 40px;
+    }
+}
+@media (max-width: 600px) {
+
+    .rooms {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .rooms img {
+        width: 100px;
+    }
+
+    .container h1 {
+        font-size: 30px;
+    }
+
+    .container p {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+}
+
+/*Memory*/
+@media (max-width: 600px) {
+
+    .memory-room {
+        padding: 30px 15px;
+    }
+
+    .memory-room h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .memory-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 150px;
+    }
+
+    .memory-room .memory {
+        padding: 5px;
+    }
+}
+@media (max-width: 900px) {
+
+    .memory-room {
+        padding: 40px 25px;
+    }
+
+    .memory-room h1 {
+        font-size: 40px;
+        margin-bottom: 35px;
+    }
+
+    .memory-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 200px;
+    }
+
+    .memory-room .memory {
+        padding: 7px;
+    }
+}
+/*Memory Detail*/
+@media (max-width: 900px) {
+
+    .memory-detail {
+        max-width: 80%;
+        padding: 25px;
+    }
+
+    .memory-detail img,
+    .memory-detail video {
+        max-width: 100%;
+        max-height: 550px;
+    }
+
+    .memory-navigation {
+        width: 90%;
+    }
+}
+@media (max-width: 600px) {
+
+    .memory-detail {
+        width: 90%;
+        max-width: 90%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .memory-detail img,
+    .memory-detail video {
+        max-width: 100%;
+        max-height: 450px;
+    }
+
+    .memory-navigation {
+        width: 95%;
+        gap: 10px;
+    }
+
+    .memory-navigation a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+/* =========================
+   MESSAGES ROOM - TABLETTE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .message-title {
+        font-size: 38px;
+        padding: 12px 20px;
+    }
+
+    .big-envelope img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .envelope img {
+        width: 150px;
+    }
+
+    .message-gallery {
+        width: 100%;
+        height: 100%;
+    }
+
+    .envelope-title {
+        font-size: 16px;
+    }
+
+    .message-navigation {
+        width: 90%;
+    }
+}
+
+
+/* =========================
+   MESSAGES ROOM - TELEPHONE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .message-title {
+        font-size: 25px;
+        padding: 10px 15px;
+        letter-spacing: 1px;
+    }
+
+    .big-envelope img {
+        max-width: 75%;
+        height: auto;
+    }
+
+    .envelope img {
+        width: 60px;
+    }
+
+    .envelope-title {
+        font-size: 11px;
+        margin-top: 8px;
+    }
+
+    .message-gallery {
+        width: 100%;
+        height: 100%;
+    }
+
+    .back-museum {
+        font-size: 14px;
+    }
+ }
+
+@media (max-width: 600px) {
+    body.message-room {
+        overflow-y: scroll;
+    }
+}
+@media (max-width: 600px) {
+
+    .message {
+        position: absolute;
+    }
+
+    .message-gallery {
+        position: absolute;
+        height: 700px;
+    }
+
+}
+
+/* =========================
+   GIFT ROOM - TABLETTE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    body.back {
+        background-position: center center;
+    }
+
+    .gift-gallery {
+        width: 80%;
+        max-width: 900px;
+        padding: 25px;
+    }
+
+    .gift-gallery p {
+        padding: 25px;
+        font-size: 18px;
+    }
+
+    .back-museum {
+        top: 15px;
+        left: 15px;
+    }
+}
+
+
+/* =========================
+   GIFT ROOM - TELEPHONE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    body.back {
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .gift-gallery {
+        width: 90%;
+        max-width: 90%;
+        padding: 15px;
+        box-sizing: border-box;
+        border-radius: 15px;
+    }
+
+    .gift-gallery p {
+        padding: 20px 15px;
+        font-size: 16px;
+        border-radius: 15px;
+    }
+
+    .back-museum {
+        top: 15px;
+        left: 15px;
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   BIRTHDAY ROOM - TABLETTE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    body.backb {
+        background-position: center center;
+    }
+
+    .birthday-m img {
+        max-width: 80%;
+        height: auto;
+        margin-top: 15%;
+    }
+
+    .back-museum {
+        top: 15px;
+        left: 15px;
+    }
+}
+
+
+/* =========================
+   BIRTHDAY ROOM - TELEPHONE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    body.backb {
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .birthday-m {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .birthday-m img {
+        max-width: 90%;
+        height: auto;
+        margin-top: 20%;
+    }
+
+    .back-museum {
+        top: 15px;
+        left: 15px;
+        font-size: 14px;
+    }
+}

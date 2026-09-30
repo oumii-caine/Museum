@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Message</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="message-room">
+
+<div class="container">
+
+    <div class="message-navigation">
+        <a id="previousLink" href="messages.html">
+            Back to Messages
+        </a>
+
+        <a id="nextLink" href="messages.html">
+            Back to Messages
+        </a>
+    </div>
+
+    <div class="message-detail">
+        <img id="messageImage" src="" alt="Message">
+    </div>
+
+</div>
+
+<script>
+
+    // Lire le numéro de la lettre dans l'adresse
+    const params = new URLSearchParams(window.location.search);
+    let messageNumber = Number(params.get("message")) || 1;
+
+    // Sélectionner les éléments HTML
+    const image = document.getElementById("messageImage");
+    const previousLink = document.getElementById("previousLink");
+    const nextLink = document.getElementById("nextLink");
+
+    // Afficher l'image correspondant au numéro
+    image.src = `css/message${messageNumber}.png`;
+    image.alt = `Message ${messageNumber}`;
+
+    // Gérer le bouton Previous
+    if (messageNumber > 1) {
+        previousLink.href = `message.html?message=${messageNumber - 1}`;
+        previousLink.textContent = "Previous";
+    }
+
+    // Gérer le bouton Next
+    if (messageNumber < 21) {
+        nextLink.href = `message.html?message=${messageNumber + 1}`;
+        nextLink.textContent = "Next";
+    }
+
+</script>
+
+</body>
+</html>
