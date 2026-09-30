@@ -325,19 +325,15 @@
     }
 }
 /* =========================
-   BIRTHDAY ROOM - TABLETTE
+   TABLETTE
    ========================= */
 
 @media (max-width: 900px) {
 
-    body.backb {
-        background-position: center center;
-    }
-
     .birthday-m img {
-        max-width: 60%;
-        height: auto !important;;
-        margin-top: 15%;
+        height: 550px;
+        width: auto;
+        max-width: 100%;
     }
 
     .back-museum {
@@ -347,48 +343,15 @@
 }
 
 
-/* TABLETTE */
-@media (max-width: 900px) {
+/* =========================
+   TELEPHONE
+   ========================= */
 
-    body.backb {
-        background-position: center center;
-    }
-
-    .birthday-m {
-        width: 100%;
-    }
-
-    .birthday-m img {
-        height: auto !important;;
-        max-width: 70%;
-        margin-top: 15%;
-    }
-
-    .back-museum {
-        top: 15px;
-        left: 15px;
-    }
-}
-
-
-/* TELEPHONE */
 @media (max-width: 600px) {
 
-    body.backb {
-        background-position: center center;
-        background-size: cover;
-    }
-
-    .birthday-m {
-        width: 100%;
-        padding: 0 15px;
-        box-sizing: border-box;
-    }
-
     .birthday-m img {
-        height: auto !important;;
-        max-width: 50%;
-        margin-top: 20%;
+        height: 400px;
+        width: auto;
     }
 
     .back-museum {
