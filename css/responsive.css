@@ -264,7 +264,7 @@
 }
 
 /* =========================
-   GIFT ROOM - TABLETTE
+   GIFTS ROOM - TABLETTE
    ========================= */
 
 @media (max-width: 900px) {
@@ -275,13 +275,13 @@
 
     .gift-gallery {
         width: 80%;
-        max-width: 900px;
-        padding: 25px;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
-    .gift-gallery p {
-        padding: 25px;
-        font-size: 18px;
+    .gift-card img {
+        max-width: 80%;
+        height: auto;
     }
 
     .back-museum {
@@ -292,7 +292,7 @@
 
 
 /* =========================
-   GIFT ROOM - TELEPHONE
+   GIFTS ROOM - TELEPHONE
    ========================= */
 
 @media (max-width: 600px) {
@@ -303,17 +303,19 @@
     }
 
     .gift-gallery {
-        width: 90%;
-        max-width: 90%;
+        width: 100%;
         padding: 15px;
         box-sizing: border-box;
-        border-radius: 15px;
+    }
+
+    .gift-card img {
+        max-width: 90%;
+        height: auto;
     }
 
     .gift-gallery p {
-        padding: 20px 15px;
-        font-size: 16px;
-        border-radius: 15px;
+        padding: 20px;
+        font-size: 14px;
     }
 
     .back-museum {
@@ -322,7 +324,6 @@
         font-size: 14px;
     }
 }
-
 /* =========================
    BIRTHDAY ROOM - TABLETTE
    ========================= */
@@ -346,10 +347,31 @@
 }
 
 
-/* =========================
-   BIRTHDAY ROOM - TELEPHONE
-   ========================= */
+/* TABLETTE */
+@media (max-width: 900px) {
 
+    body.backb {
+        background-position: center center;
+    }
+
+    .birthday-m {
+        width: 100%;
+    }
+
+    .birthday-m img {
+        height: auto;
+        max-width: 80%;
+        margin-top: 15%;
+    }
+
+    .back-museum {
+        top: 15px;
+        left: 15px;
+    }
+}
+
+
+/* TELEPHONE */
 @media (max-width: 600px) {
 
     body.backb {
@@ -364,8 +386,8 @@
     }
 
     .birthday-m img {
-        max-width: 90%;
         height: auto;
+        max-width: 90%;
         margin-top: 20%;
     }
 
