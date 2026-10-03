@@ -331,9 +331,9 @@
 @media (max-width: 900px) {
 
     .birthday-m img {
-        height: 550px;
+        height: 550px !important;
         width: auto;
-        max-width: 100%;
+        max-width: 50% !important;
     }
 
     .back-museum {
@@ -350,8 +350,8 @@
 @media (max-width: 600px) {
 
     .birthday-m img {
-        height: 400px;
-        width: auto;
+        height: 400px !important;
+        width: 400px !important;
     }
 
     .back-museum {
