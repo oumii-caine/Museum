@@ -324,16 +324,29 @@
         font-size: 14px;
     }
 }
-/* =========================
-   TABLETTE
-   ========================= */
+
 
 @media (max-width: 900px) {
+
+    .cake-container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .birthday-m {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 
     .birthday-m img {
         height: 550px !important;
         width: auto !important;
         max-width: 90% !important;
+        margin-top: 0 !important;
     }
 
     .back-museum {
@@ -343,17 +356,21 @@
 }
 
 
-/* =========================
-   TELEPHONE
-   ========================= */
-
 @media (max-width: 600px) {
+
+    .cake-container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .birthday-m img {
         height: 400px !important;
         width: 400px !important;
         max-width: 70% !important;
         object-fit: contain;
+        margin-top: 0 !important;
     }
 
     .back-museum {
