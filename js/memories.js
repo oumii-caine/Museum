@@ -36,7 +36,7 @@ fetch("media.json")
                 video.classList.add("memory-image");
                 video.src = "images/" + file;
                 video.controls = true;
-
+                video.preload = "metadata";
                 link.appendChild(video);
             }
 

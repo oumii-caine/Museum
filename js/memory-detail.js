@@ -83,7 +83,7 @@ fetch("media.json")
 
             video.src = "images/" + file;
             video.controls = true;
-
+            video.preload = "metadata";
             detail.appendChild(video);
         }
 
