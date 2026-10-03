@@ -332,13 +332,13 @@
 
     .birthday-m img {
         height: 550px !important;
-        width: auto;
-        max-width: 50% !important;
+        width: auto !important;
+        max-width: 90% !important;
     }
 
     .back-museum {
-        top: 15px;
-        left: 15px;
+        top: 15px !important;
+        left: 15px !important;
     }
 }
 
@@ -352,11 +352,13 @@
     .birthday-m img {
         height: 400px !important;
         width: 400px !important;
+        max-width: 70% !important;
+        object-fit: contain;
     }
 
     .back-museum {
-        top: 15px;
-        left: 15px;
-        font-size: 14px;
+        top: 15px !important;
+        left: 15px !important;
+        font-size: 14px !important;
     }
 }
