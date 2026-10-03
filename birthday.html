@@ -21,9 +21,10 @@
 
         .birthday-m {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            width: 100%;
+
         }
 
         .birthday-m img {
@@ -31,7 +32,7 @@
             max-width: 100%;
             width: auto;
             animation: pulse 2s infinite;
-            margin-top: 10%;
+            margin-top: 0;
         }
 
         @keyframes pulse {
@@ -49,6 +50,14 @@
             top: 20px;
             left: 20px;
         }
+        .cake-container {
+         min-height: 100vh;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+        } 
+     
+
     </style>
 </head>
 
@@ -63,7 +72,6 @@
         <div class="cake-container">
 
             <div class="birthday-m">
-
                 <a href="https://canva.link/w868ba9ualhzxi5" target="_blank">
                     <img src="css/Cover.png" alt="Birthday">
                 </a>
