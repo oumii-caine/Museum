@@ -38,9 +38,6 @@ fetch("media.json")
                 video.poster = "images/posters/" + file.replace(/\.[^/.]+$/, ".jpg");
                 video.controls = true;
 
-                video.setAttribute("playsinline", "");
-                 video.setAttribute("webkit-playsinline", "");
-                video.muted = true;
                 video.preload = "metadata";
                 link.appendChild(video);
             }
