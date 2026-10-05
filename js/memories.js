@@ -35,11 +35,13 @@ fetch("media.json")
 
                 video.classList.add("memory-image");
                 video.src = "images/" + file;
+                video.poster = "images/" + file.replace(/\.[^/.]+$/, ".jpg");
                 video.controls = true;
+
                 video.setAttribute("playsinline", "");
-                video.setAttribute("webkit-playsinline", "");
+                 video.setAttribute("webkit-playsinline", "");
                 video.muted = true;
-                video.preload = "auto";
+                video.preload = "metadata";
                 link.appendChild(video);
             }
 
