@@ -50,9 +50,11 @@ fetch("media.json")
 
                 // Poster uniquement sur iOS
                 if (isIOS) {
-                    video.poster =
-                        "images/posters/" +
-                        file.replace(/\.[^/.]+$/, ".jpg");
+                    const posterName = file.replace(/\.[^/.]+$/, ".jpg");
+                    video.poster = "images/posters/" + encodeURIComponent(posterName);
+                    video.src = "images/" + file + "#t=0.001";
+                } else {
+                    video.src = "images/" + file;
                 }
 
                 video.controls = true;
