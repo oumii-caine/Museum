@@ -1,3 +1,8 @@
+// Détection iOS (iPhone, iPad, iPod + iPadOS qui s'identifie comme "MacIntel")
+const isIOS =
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
 const params = new URLSearchParams(window.location.search);
 const id = parseInt(params.get("id"));
 const previous = document.getElementById("previous");
@@ -53,8 +58,22 @@ fetch("media.json")
         // VIDEO
         else if (["mp4", "webm", "mov"].includes(extension)) {
             const video = document.createElement("video");
-            video.src = "images/" + file;
+
+            if (isIOS) {
+                // Poster uniquement sur iOS (nom encodé pour espaces/accents)
+                const posterName = file.replace(/\.[^/.]+$/, ".jpg");
+                video.poster = "images/posters/" + encodeURIComponent(posterName);
+
+                // Astuce iOS : #t=0.001 force Safari à afficher la première image
+                video.src = "images/" + file + "#t=0.001";
+            } else {
+                video.src = "images/" + file;
+            }
+
             video.controls = true;
+            video.setAttribute("playsinline", "");
+            video.setAttribute("webkit-playsinline", "");
+            video.muted = true;
             video.preload = "metadata";
             detail.appendChild(video);
         }
@@ -78,6 +97,3 @@ fetch("media.json")
     .catch(error => {
         console.log("Erreur media.json :", error);
     });
-
-
-
