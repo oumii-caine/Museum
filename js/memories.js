@@ -1,3 +1,8 @@
+const isAppleSafari =
+    /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent) &&
+    /Safari/.test(navigator.userAgent) &&
+    !/Chrome|CriOS|FxiOS|EdgiOS|OPiOS/.test(navigator.userAgent);
+
 fetch("media.json")
     .then(response => response.json())
     .then(files => {
@@ -32,19 +37,41 @@ fetch("media.json")
             // Videos
             else if (["mp4", "webm", "mov"].includes(extension)) {
 
-                const image = document.createElement("img");
+                if (isAppleSafari) {
 
-                image.classList.add("memory-image");
+                    const image = document.createElement("img");
 
-                // Utilise le poster correspondant à la vidéo
-                image.src = "images/posters/" + file.replace(/\.[^/.]+$/, ".jpg");
+                    image.classList.add("memory-image");
+                    image.src =
+                        "images/posters/" +
+                        file.replace(/\.[^/.]+$/, ".jpg");
 
-                image.alt = "Memory " + number;
+                    image.alt = "Memory " + number;
 
-                link.appendChild(image);
+                    link.appendChild(image);
+
+                } else {
+
+                    const video = document.createElement("video");
+
+                    video.classList.add("memory-image");
+                    video.src = "images/" + file;
+
+                    video.controls = true;
+                    video.setAttribute("playsinline", "");
+                    video.setAttribute("webkit-playsinline", "");
+
+                    video.muted = true;
+                    video.preload = "auto";
+
+                    link.appendChild(video);
+                }
             }
 
             memory.appendChild(link);
             gallery.appendChild(memory);
         });
+    })
+    .catch(error => {
+        console.error("Erreur :", error);
     });
