@@ -36,7 +36,10 @@ fetch("media.json")
                 video.classList.add("memory-image");
                 video.src = "images/" + file;
                 video.controls = true;
-                video.preload = "metadata";
+                video.setAttribute("playsinline", "");
+                video.setAttribute("webkit-playsinline", "");
+                video.muted = true;
+                video.preload = "auto";
                 link.appendChild(video);
             }
 

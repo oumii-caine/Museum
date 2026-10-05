@@ -21,13 +21,10 @@ fetch("media.json")
         const file = files[id - 1];
 
 
-        // =========================
-        // NAVIGATION
-        // =========================
 
         if (id === 1) {
 
-            // Premier média
+          
             previous.style.display = "none";
             back.style.display = "block";
 
@@ -37,7 +34,6 @@ fetch("media.json")
 
         else if (id === files.length) {
 
-            // Dernier média
             next.style.display = "none";
             back.style.display = "block";
 
@@ -47,7 +43,7 @@ fetch("media.json")
 
         else {
 
-            // Médias du milieu
+         
             back.style.display = "none";
 
             previous.href = "memory-detail.html?id=" + (id - 1);
@@ -55,14 +51,12 @@ fetch("media.json")
         }
 
 
-        // =========================
-        // TYPE DU MÉDIA
-        // =========================
+        
 
         const extension = file.split(".").pop().toLowerCase();
 
 
-        // IMAGE
+       
 
         if (["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
 
@@ -75,7 +69,7 @@ fetch("media.json")
         }
 
 
-        // VIDEO
+   
 
         else if (["mp4", "webm", "mov"].includes(extension)) {
 
@@ -83,7 +77,10 @@ fetch("media.json")
 
             video.src = "images/" + file;
             video.controls = true;
-            video.preload = "metadata";
+            video.setAttribute("playsinline", "");
+            video.setAttribute("webkit-playsinline", "");
+            video.muted = true;
+            video.preload = "auto";
             detail.appendChild(video);
         }
 
