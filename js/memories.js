@@ -17,6 +17,7 @@ fetch("media.json")
 
             const extension = file.split(".").pop().toLowerCase();
 
+            // Images
             if (["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
 
                 const image = document.createElement("img");
@@ -26,23 +27,21 @@ fetch("media.json")
                 image.alt = "Memory " + number;
 
                 link.appendChild(image);
-
             }
 
+            // Videos
             else if (["mp4", "webm", "mov"].includes(extension)) {
 
-                const video = document.createElement("video");
+                const image = document.createElement("img");
 
-                video.classList.add("memory-image");
-                video.src = "images/" + file;
-                video.poster = "images/posters/" + file.replace(/\.[^/.]+$/, ".jpg");
-                video.controls = true;
+                image.classList.add("memory-image");
 
-                video.setAttribute("playsinline", "");
-                video.setAttribute("webkit-playsinline", "");
-                video.muted = true;
-                video.preload = "metadata";
-                link.appendChild(video);
+                // Utilise le poster correspondant à la vidéo
+                image.src = "images/posters/" + file.replace(/\.[^/.]+$/, ".jpg");
+
+                image.alt = "Memory " + number;
+
+                link.appendChild(image);
             }
 
             memory.appendChild(link);
