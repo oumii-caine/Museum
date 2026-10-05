@@ -39,6 +39,9 @@ fetch("media.json")
 
                 if (isAppleSafari) {
 
+                    const videoPreview = document.createElement("div");
+                    videoPreview.classList.add("video-preview");
+
                     const image = document.createElement("img");
 
                     image.classList.add("memory-image");
@@ -48,7 +51,15 @@ fetch("media.json")
 
                     image.alt = "Memory " + number;
 
-                    link.appendChild(image);
+                    const playButton = document.createElement("span");
+
+                    playButton.classList.add("video-play");
+                    playButton.textContent = "▶";
+
+                    videoPreview.appendChild(image);
+                    videoPreview.appendChild(playButton);
+
+                    link.appendChild(videoPreview);
 
                 } else {
 
@@ -58,6 +69,7 @@ fetch("media.json")
                     video.src = "images/" + file;
 
                     video.controls = true;
+
                     video.setAttribute("playsinline", "");
                     video.setAttribute("webkit-playsinline", "");
 
