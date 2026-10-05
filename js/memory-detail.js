@@ -76,7 +76,7 @@ fetch("media.json")
             const video = document.createElement("video");
 
             video.src = "images/" + file;
-                video.poster = "images/" + file.replace(/\.[^/.]+$/, ".jpg");
+                
             video.controls = true;
             video.setAttribute("playsinline", "");
             video.setAttribute("webkit-playsinline", "");

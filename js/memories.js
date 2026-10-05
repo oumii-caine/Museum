@@ -35,7 +35,7 @@ fetch("media.json")
 
                 video.classList.add("memory-image");
                 video.src = "images/" + file;
-                video.poster = "images/" + file.replace(/\.[^/.]+$/, ".jpg");
+                
                 video.controls = true;
 
                 video.setAttribute("playsinline", "");
