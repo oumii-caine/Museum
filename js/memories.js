@@ -1,8 +1,11 @@
-const isAppleSafari =
-    /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent) &&
+const isIOS =
+    /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+const isMacSafari =
+    /Macintosh/.test(navigator.userAgent) &&
     /Safari/.test(navigator.userAgent) &&
     !/Chrome|CriOS|FxiOS|EdgiOS|OPiOS/.test(navigator.userAgent);
-
 fetch("media.json")
     .then(response => response.json())
     .then(files => {
@@ -37,7 +40,7 @@ fetch("media.json")
             // Videos
             else if (["mp4", "webm", "mov"].includes(extension)) {
 
-                if (isAppleSafari) {
+                if (isIOS || isMacSafari) {
 
                     const videoPreview = document.createElement("div");
                     videoPreview.classList.add("video-preview");
