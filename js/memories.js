@@ -1,3 +1,8 @@
+// Détection iOS (iPhone, iPad, iPod + iPadOS qui s'identifie comme "MacIntel")
+const isIOS =
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
 fetch("media.json")
 
     .then(response => response.json())
@@ -43,9 +48,12 @@ fetch("media.json")
 
                 video.src = "images/" + file;
 
-                video.poster =
-                    "images/posters/" +
-                    file.replace(/\.[^/.]+$/, ".jpg");
+                // Poster uniquement sur iOS
+                if (isIOS) {
+                    video.poster =
+                        "images/posters/" +
+                        file.replace(/\.[^/.]+$/, ".jpg");
+                }
 
                 video.controls = true;
 
