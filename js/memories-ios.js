@@ -1,3 +1,4 @@
+alert("memory-ios.js fonctionne");
 fetch("media.json")
     .then(response => response.json())
     .then(files => {
